@@ -32,6 +32,25 @@ python3 scripts/download_data.py
 
 After that, the training, ablation, and evaluation scripts can be run directly from the repository root.
 
+To build comparison plots for the smallest available training set in `test1`, `test2`, `test3`, and `test4`, run:
+
+```bash
+python3 scripts/plot_min_n_validation_fields.py --device cpu
+```
+
+This command loads the saved PINN checkpoints, reconstructs the validation fields and 1D profiles, and stores the resulting figures in the root-level `graphs/` directory.
+
+## Result Demonstration
+
+The repository also includes ready-made comparison plots generated from the saved checkpoints for the smallest available training set in each benchmark:
+
+- [test1_profiles_min_n50.png](</Users/kirill/hse_lambda/hierarchical-loss-pinn/graphs/test1_profiles_min_n50.png>)
+- [test2_validation_fields_min_n100.png](</Users/kirill/hse_lambda/hierarchical-loss-pinn/graphs/test2_validation_fields_min_n100.png>)
+- [test3_validation_fields_min_n50.png](</Users/kirill/hse_lambda/hierarchical-loss-pinn/graphs/test3_validation_fields_min_n50.png>)
+- [test4_validation_fields_min_n100.png](</Users/kirill/hse_lambda/hierarchical-loss-pinn/graphs/test4_validation_fields_min_n100.png>)
+
+These figures compare the ground-truth solution against all supported loss-balancing strategies using the smallest training sample size available in each test.
+
 ## Repository Structure
 
 - `loss_balancong_algorithms/`: implementations of the loss balancers and runtime utilities.
@@ -42,13 +61,12 @@ After that, the training, ablation, and evaluation scripts can be run directly f
 - `test4-2phase-disp-7d/`: 7D parametric two-phase displacement benchmark.
 - `test_results/`: cross-test held-out evaluation pipeline for trained PINNs.
 - `test_ml_pinn/`: comparison pipeline for PINNs and classical ML baselines.
-- `paper_2/`: LaTeX sources and figures for the paper.
 
 ## Supported Loss Balancers
 
 The training scripts support the following balancers:
 
-- `grad-orth`: HO-PINN (hierarchical loss balancing).
+- `grad-orth`: HO-PINN (our proposed hierarchical loss balancing).
 - `vanilla`: fixed equal weights.
 - `lra`: Learning Rate Annealing.
 - `softadapt`: SoftAdapt.
@@ -307,3 +325,6 @@ After this setup, the main scripts should be ready to run.
 
 - The codebase mixes training scripts, paper-generation utilities, and experimental pipelines. It is primarily organized for reproducibility of the study rather than as a packaged Python library.
 - Some benchmark scripts expect pre-generated training indices or raw simulation files. If these files are missing, the corresponding scripts may fail until the required local data is restored.
+
+
+## Example of PINNs training
