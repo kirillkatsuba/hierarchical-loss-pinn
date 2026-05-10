@@ -42,14 +42,25 @@ This command loads the saved PINN checkpoints, reconstructs the validation field
 
 ## Result Demonstration
 
-The repository also includes ready-made comparison plots generated from the saved checkpoints for the smallest available training set in each benchmark:
-
-- [test1_profiles_min_n50.png](</Users/kirill/hse_lambda/hierarchical-loss-pinn/graphs/test1_profiles_min_n50.png>)
-- [test2_validation_fields_min_n100.png](</Users/kirill/hse_lambda/hierarchical-loss-pinn/graphs/test2_validation_fields_min_n100.png>)
-- [test3_validation_fields_min_n50.png](</Users/kirill/hse_lambda/hierarchical-loss-pinn/graphs/test3_validation_fields_min_n50.png>)
-- [test4_validation_fields_min_n100.png](</Users/kirill/hse_lambda/hierarchical-loss-pinn/graphs/test4_validation_fields_min_n100.png>)
+The repository also includes ready-made comparison plots generated from the saved checkpoints for the smallest available training set in each benchmarks. 
 
 These figures compare the ground-truth solution against all supported loss-balancing strategies using the smallest training sample size available in each test.
+
+### Test 1
+
+![Test 1 profiles](graphs/test1_profiles_min_n50.png)
+
+### Test 2
+
+![Test 2 validation fields](graphs/test2_validation_fields_min_n100.png)
+
+### Test 3
+
+![Test 3 validation fields](graphs/test3_validation_fields_min_n50.png)
+
+### Test 4
+
+![Test 4 validation fields](graphs/test4_validation_fields_min_n100.png)
 
 ## Repository Structure
 
