@@ -10,6 +10,28 @@ The main idea is to train PINNs with a staged weighting strategy that prioritize
 
 The repository includes four benchmark problems, ablation scripts, test-evaluation pipelines, and the paper sources.
 
+## Quick Start
+
+After cloning the repository, install the Python dependencies:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+Then download and unpack the external dataset bundle:
+
+```bash
+bash scripts/download_data.sh
+```
+
+or
+
+```bash
+python3 scripts/download_data.py
+```
+
+After that, the training, ablation, and evaluation scripts can be run directly from the repository root.
+
 ## Repository Structure
 
 - `loss_balancong_algorithms/`: implementations of the loss balancers and runtime utilities.
@@ -247,6 +269,39 @@ pdflatex -interaction=nonstopmode main.tex
 Large datasets, raw simulation files, cached artifacts, generated results, and model checkpoints are intentionally excluded from version control via `.gitignore`.
 
 If you plan to reproduce the experiments, make sure the required raw data files are available locally in the expected benchmark directories.
+
+### Downloading the dataset bundle
+
+The dataset bundle is hosted externally on Google Drive. The helper scripts below download the archive and unpack it into the repository root while preserving the benchmark directory structure expected by the code:
+
+```bash
+bash scripts/download_data.sh
+```
+
+or
+
+```bash
+python3 scripts/download_data.py
+```
+
+The scripts use the Google Drive file:
+
+`https://drive.google.com/file/d/128_J3kojPXMWCEN54gbf86H0aSVxO_cI/view?usp=sharing`
+
+They download the archive as `hierarchical-loss-pinn-data.zip`, extract it into the current repository, and remove the temporary archive afterwards.
+
+### Minimal setup sequence
+
+For a fresh clone, the expected order is:
+
+```bash
+git clone https://github.com/kirillkatsuba/hierarchical-loss-pinn.git
+cd hierarchical-loss-pinn
+python3 -m pip install -r requirements.txt
+bash scripts/download_data.sh
+```
+
+After this setup, the main scripts should be ready to run.
 
 ## Notes
 
