@@ -268,26 +268,6 @@ The classical ML baselines currently include:
 - `SVM`
 - `GP`
 
-## Paper Sources
-
-The paper draft and generated figures are stored in `paper_2/`.
-
-To compile the paper manually:
-
-```bash
-cd paper_2
-pdflatex -interaction=nonstopmode main.tex
-bibtex main
-pdflatex -interaction=nonstopmode main.tex
-pdflatex -interaction=nonstopmode main.tex
-```
-
-## Data Availability
-
-Large datasets, raw simulation files, cached artifacts, generated results, and model checkpoints are intentionally excluded from version control via `.gitignore`.
-
-If you plan to reproduce the experiments, make sure the required raw data files are available locally in the expected benchmark directories.
-
 ### Downloading the dataset bundle
 
 The dataset bundle is hosted externally on Google Drive. The helper scripts below download the archive and unpack it into the repository root while preserving the benchmark directory structure expected by the code:
